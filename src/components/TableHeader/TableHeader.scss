@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.table-header {
+  display: none;
+
+  &__title {
+    color: $secondary-text-colour;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  &__sort-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.625rem 2rem;
+    background-color: $light-background-colour;
+  }
+
+  @include desktop {
+    padding: 0.625rem 2.5rem;
+  }
+}
