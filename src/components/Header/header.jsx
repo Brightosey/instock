@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import inStockLogo from "../../assets/logo/instock-logo.svg";
-import "./Header.scss";
+import "./header.scss";
 
 function Header() {
   return (
