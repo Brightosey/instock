@@ -7,6 +7,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function WarehousesPage() {
   const [warehousesData, setWarehousesData] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   const getWarehouses = async () => {
     try {
@@ -14,12 +15,18 @@ function WarehousesPage() {
       setWarehousesData(response.data);
     } catch (err) {
       console.error("Error getting warehouses", err);
+    } finally {
+      setLoading(true);
     }
   };
 
   useEffect(() => {
     getWarehouses();
   }, []);
+
+  if (loading) {
+    return <div>Fetching data…</div>
+  }
 
   return (
     <main className="warehouses-page">
