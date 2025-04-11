@@ -7,7 +7,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function WarehousesPage() {
   const [warehousesData, setWarehousesData] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const getWarehouses = async () => {
     try {
@@ -16,7 +16,7 @@ function WarehousesPage() {
     } catch (err) {
       console.error("Error getting warehouses", err);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
