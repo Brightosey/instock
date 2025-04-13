@@ -2,6 +2,8 @@ import "./WarehousesPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehousesList from "../../components/WarehousesList/WarehousesList";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../assets/Icons/MainScene.json";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -25,7 +27,12 @@ function WarehousesPage() {
   }, []);
 
   if (loading) {
-    return <div>Fetching data…</div>
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Lottie animationData={loadingAnimation} loop={true} style={{ width: 200 }} />
+        <p className="mt-4 text-lg font-medium text-gray-600">Fetching data...</p>
+      </div>
+    );
   }
 
   return (
